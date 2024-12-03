@@ -1,0 +1,31 @@
+@startuml
+start
+
+:App wird geladen;
+:Benutzer gibt die Anzahl der Personen ein;
+:Benutzer gibt die Seitenanzahl für Buch 1 ein;
+:Benutzer gibt die Seitenanzahl für Buch 2 ein;
+
+repeat
+  :Benutzer drückt die Schaltfläche "Leseplan generieren"?;
+
+  repeat
+    :Benutzer gibt die Startseite für Buch 1 ein?;
+
+  repeat while (Benutzer hat keine Startseite für Buch 1 eingegeben)
+
+  repeat
+    :Benutzer gibt die Startseite für Buch 2 ein?;
+
+  repeat while (Benutzer hat keine Startseite für Buch 2 eingegeben)
+
+repeat while (Benutzer hat nicht die Schaltfläche "Leseplan generieren" gedrückt)
+
+:Leseplan generieren;
+:Erfolgsnachricht anzeigen;
+:Leseplan in Excel-Datei speichern;
+:Leseplan in Excel-Datei öffnen;
+
+stop
+@enduml
+

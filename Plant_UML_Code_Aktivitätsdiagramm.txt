@@ -1,30 +1,39 @@
 @startuml
 start
 
-:App wird geladen;
-:Benutzer gibt die Anzahl der Personen ein;
-:Benutzer gibt die Seitenanzahl für Buch 1 ein;
-:Benutzer gibt die Seitenanzahl für Buch 2 ein;
-
+:Create an input field for the number of people;
+:Create new fields for the entered number of people;
 repeat
-  :Benutzer drückt die Schaltfläche "Leseplan generieren"?;
+  if (Was the start page for Book 1 entered for Person i?) then (yes)
+    :Update the start page for Book 1;
+  else (no)
+    :Set the start page for Book 1 to 1;
+  endif
 
-  repeat
-    :Benutzer gibt die Startseite für Buch 1 ein?;
+  if (Was the page count for Book 1 entered for Person i?) then (yes)
+    :Update the page count for Book 1;
+  else (no)
+    :Set the page count for Book 1 to 5;
+  endif
+    
+  if (Was the start page for Book 2 entered for Person i?) then (yes)
+    :Update the start page for Book 2;
+  else (no)
+    :Set the start page for Book 2 to 1;
+  endif
 
-  repeat while (Benutzer hat keine Startseite für Buch 1 eingegeben)
+  if (Was the page count for Book 2 entered for Person i?) then (yes)
+    :Update the page count for Book 2;
+  else (no)
+    :Set the page count for Book 2 to 5;
+  endif
+repeat while (Number of people entered)
 
-  repeat
-    :Benutzer gibt die Startseite für Buch 2 ein?;
-
-  repeat while (Benutzer hat keine Startseite für Buch 2 eingegeben)
-
-repeat while (Benutzer hat nicht die Schaltfläche "Leseplan generieren" gedrückt)
-
-:Leseplan generieren;
-:Erfolgsnachricht anzeigen;
-:Leseplan in Excel-Datei speichern;
-:Leseplan in Excel-Datei öffnen;
+:Click on the 'Leseplan generieren' button;
+:Start the reading plan generation process;
+:Display success message;
+:Save Leseplan to Excel file;
+:Open Leseplan in Excel file;
 
 stop
 @enduml

@@ -1,50 +1,50 @@
-# 📚 Excel Leseplan Generator Dokumentation
+# Excel Reading Plan Generator Documentation
 
-## Überblick  
-Dieser Code generiert einen Leseplan basierend auf der Anzahl der Personen und den Seitenzahlen von zwei Büchern. Es ermöglicht den Benutzern, Startseiten und die Anzahl der Seiten individuell für jede Person festzulegen. Der Leseplan wird als Excel-Datei exportiert und automatisch geöffnet.  
-
----
-
-## 🛠 Anforderungen  
-- **Bibliotheken**:  
-  - `flet`: Für die GUI-Erstellung.  
-  - `pandas`: Zur Datenverarbeitung und Excel-Export.  
-  - `os`: Um Dateien zu öffnen.  
-  - `datetime`: Zur Erstellung eines datierten Dateinamens.  
-- **Python-Version**: Python 3.7 oder höher.  
+## Overview  
+This code generates a reading plan based on the number of participants and the page numbers of two books. It allows users to customize start pages and the number of pages for each individual. The reading plan is exported as an Excel file and automatically opened.
 
 ---
 
-## 📝 Code-Struktur  
+## Requirements  
+- **Libraries**:  
+  - `flet`: For building the GUI
+  - `pandas`: For data processing and Excel export  
+  - `os`: For opening files
+  - `datetime`: For opening files
+- **Python-Version**: Python 3.7 or higher  
 
-### **1. Bibliotheken Importieren**
+---
+
+## Code Structure  
+
+### **1. Importing Libraries**
 ```python
 import flet as ft
 import pandas as pd
 import os
 from datetime import datetime
 ```
-- Importiert alle erforderlichen Bibliotheken.
+- All required libraries are imported.
 
 ---
 
-### **2. Hauptfunktion: `main`**  
-Die Funktion `main` ist der Einstiegspunkt der Anwendung. Sie wird vom Flet-Framework aufgerufen.
+### **2. Main Function: `main`**  
+The `main` function serves as the entry point of the application. It is called by the Flet framework.
 
 ```python
 def main(page: ft.Page):
     page.title = "Leseplan Generator"
 ```
-- **`page`**: Repräsentiert das Hauptfenster der App.  
-- **`page.title`**: Setzt den Titel der Anwendung.  
+- **`page`**: Represents the main window of the app  
+- **`page.title`**: Sets the title of the application
 
 ---
 
-### **3. Eingabefelder für Personen und Seitenzahlen**  
-Die erste Zeile enthält drei Eingabefelder:  
-- Anzahl der Personen.  
-- Seitenanzahl für Buch 1.  
-- Seitenanzahl für Buch 2.  
+### **3. Input Fields for Participants and Page Numbers**  
+The first row contains three input fields:  
+- Number of participants  
+- Total pages for Book 1
+- Total pages for Book 2
 
 ```python
 person_count_input = ft.TextField(label="Anzahl der Personen", autofocus=True)
@@ -55,8 +55,8 @@ input_row = ft.Row(controls=[person_count_input, buch1_pages_input, buch2_pages_
 
 ---
 
-### **4. Dynamische Eingabefelder Generieren**  
-Basierend auf der Anzahl der Personen werden Eingabefelder für jede Person dynamisch erstellt.  
+### **4. Dynamic Input Field Generation**  
+Based on the number of participants, input fields for each individual are dynamically generated.
 
 ```python
 def create_person_page_inputs():
@@ -71,16 +71,16 @@ def create_person_page_inputs():
         page.add(row)
 ```
 
-- **Eingabefelder pro Person**:  
-  - **Startseite Buch 1**  
-  - **Seitenanzahl Buch 1**  
-  - **Startseite Buch 2**  
-  - **Seitenanzahl Buch 2**
+- **Input Fields per Participant:**:  
+  - **Start Page Book 1**  
+  - **Pages Book 1**  
+  - **Start Page Book 2**  
+  - **Pages Book 2**
 
 ---
 
-### **5. Leseplan Generieren**  
-Die Funktion erstellt den Leseplan basierend auf den Eingaben und exportiert ihn als Excel-Datei.  
+### **5. Generating the Reading Plan**  
+The function creates the reading plan based on user inputs and exports it as an Excel file.
 
 ```python
 def generate_plan(e):
@@ -127,14 +127,14 @@ def generate_plan(e):
 
 ---
 
-### **6. Excel-Export**
-- Speichert den Leseplan in einer Excel-Datei mit Datum im Dateinamen.  
-- Öffnet die Datei automatisch mit `os.startfile`.
+### **6. Excel Export**
+- Saves the reading plan as an Excel file with a date in the file name
+- Automatically opens the file using `os.startfile`.
 
 ---
 
-### **7. App Starten**  
-Am Ende wird die `main`-Funktion durch das Flet-Framework gestartet.  
+### **7. Starting the App**  
+At the end, the `main`function is started through the Flet framework  
 
 ```python
 ft.app(target=main)
@@ -142,8 +142,8 @@ ft.app(target=main)
 
 ---
 
-## 🚀 Verbesserungsmöglichkeiten  
-- **Fehlerbehandlung**: Negative oder nicht-numerische Eingaben abfangen.  
-- **UI-Optimierung**: Eingabefelder in Panels organisieren.  
-- **Datenvalidierung**: Prüfen, ob die Startseite und Seitenanzahl innerhalb gültiger Grenzen liegen.  
+## Improvements  
+- **Error Handling**: Handle invalid or negative inputs 
+- **UI Optimization**: Organize input fields into panels for better clarity 
+- **Data Validation**: Ensure that start pages and page numbers are within valid ranges
 
